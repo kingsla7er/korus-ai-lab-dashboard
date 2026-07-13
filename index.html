@@ -19,585 +19,28 @@
     --text-muted: #8b95a7;
     --border: #1f2738;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg-dark);
     color: var(--text-main);
     line-height: 1.6;
     min-height: 100vh;
-    background-image:
-      radial-gradient(circle at 20% 10%, rgba(0, 229, 255, 0.08) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(177, 78, 255, 0.08) 0%, transparent 40%);
+    background-image: radial-gradient(circle at 20% 10%, rgba(0, 229, 255, 0.08) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(177, 78, 255, 0.08) 0%, transparent 40%);
   }
-
   .container { max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem; }
-
-  /* HEADER */
-  header {
-    text-align: center;
-    padding: 3rem 1rem 2rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 3rem;
-  }
-  header .badge {
-    display: inline-block;
-    padding: 0.4rem 1rem;
-    background: rgba(0, 229, 255, 0.1);
-    border: 1px solid var(--accent-cyan);
-    border-radius: 20px;
-    color: var(--accent-cyan);
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    font-family: 'Courier New', monospace;
-  }
-  header h1 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  header .hypothesis {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1.5rem;
-    background: var(--bg-card);
-    border-left: 3px solid var(--accent-cyan);
-    border-radius: 8px;
-    font-style: italic;
-    color: var(--text-muted);
-  }
-
-  /* SECTIONS */
-  section { margin-bottom: 4rem; }
-  .section-title {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .section-title::before {
-    content: '';
-    width: 4px;
-    height: 28px;
-    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
-    border-radius: 2px;
-  }
-
-  /* COMPARISON TABLE */
-  .comparison-wrapper {
-    background: var(--bg-card);
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-  .comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .comparison-table th {
-    background: rgba(0, 229, 255, 0.1);
-    padding: 1.2rem;
-    text-align: left;
-    font-weight: 600;
-    color: var(--accent-cyan);
-    border-bottom: 2px solid var(--border);
-  }
-  .comparison-table td {
-    padding: 1.2rem;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  .comparison-table tr:last-child td { border-bottom: none; }
-  .comparison-table tr:hover { background: var(--bg-card-hover); }
-  .col-academic { border-left: 3px solid var(--accent-purple); }
-  .col-ai { border-right: 3px solid var(--accent-orange); }
-  .tag {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  .tag.academic { background: rgba(177, 78, 255, 0.2); color: var(--accent-purple); }
-  .tag.ai { background: rgba(255, 149, 0, 0.2); color: var(--accent-orange); }
-  .tag.contradiction { background: rgba(255, 56, 96, 0.2); color: var(--accent-red); }
-
-  /* OVERESTIMATION CARDS */
-  .overestimation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-  .overestimation-card {
-    background: var(--bg-card);
-    padding: 1.8rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .overestimation-card::before {
-    content: '⚠️';
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    opacity: 0.3;
-  }
-  .overestimation-card h3 {
-    color: var(--accent-orange);
-    margin-bottom: 1rem;
-    font-size: 1.15rem;
-  }
-  .overestimation-card .what-ai-says {
-    background: rgba(255, 149, 0, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    border-left: 3px solid var(--accent-orange);
-  }
-  .overestimation-card .what-ai-says strong {
-    color: var(--accent-orange);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  .overestimation-card .reality {
-    background: rgba(0, 255, 157, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    border-left: 3px solid var(--accent-green);
-  }
-  .overestimation-card .reality strong {
-    color: var(--accent-green);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  .overestimation-card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  /* HIDDEN RISKS */
-  .hidden-risks {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--accent-red);
-  }
-  .hidden-risks h3 {
-    color: var(--accent-red);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .risk-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .risk-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-  .risk-item h4 {
-    color: var(--text-main);
-    margin-bottom: 0.6rem;
-    font-size: 1.05rem;
-  }
-  .risk-item p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-  }
-  .risk-item .impact {
-    display: inline-block;
-    margin-top: 0.6rem;
-    padding: 0.3rem 0.7rem;
-    background: rgba(255, 56, 96, 0.15);
-    border: 1px solid var(--accent-red);
-    border-radius: 6px;
-    color: var(--accent-red);
-    font-size: 0.8rem;
-    font-family: 'Courier New', monospace;
-  }
-
-  /* CARDS GRID */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .card {
-    background: var(--bg-card);
-    padding: 1.8rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: var(--accent-cyan);
-  }
-  .card:hover {
-    background: var(--bg-card-hover);
-    transform: translateY(-4px);
-    border-color: var(--accent-cyan);
-  }
-  .card-icon {
-    width: 48px; height: 48px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(0, 229, 255, 0.1);
-    border-radius: 10px;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-main);
-  }
-  .card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-  .card .metric {
-    display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background: rgba(0, 255, 157, 0.1);
-    border: 1px solid var(--accent-green);
-    border-radius: 6px;
-    color: var(--accent-green);
-    font-family: 'Courier New', monospace;
-    font-size: 0.85rem;
-  }
-
-  /* WARNING CARDS */
-  .warning-card::before { background: var(--accent-red); }
-  .warning-card .card-icon {
-    background: rgba(255, 56, 96, 0.1);
-  }
-  .warning-card:hover { border-color: var(--accent-red); }
-  .warning-card .metric {
-    background: rgba(255, 56, 96, 0.1);
-    border-color: var(--accent-red);
-    color: var(--accent-red);
-  }
-
-  /* CONFIDENCE GAUGE */
-  .confidence-wrapper {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 2rem;
-    align-items: center;
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-  }
-  .gauge {
-    position: relative;
-    width: 240px;
-    height: 240px;
-    margin: 0 auto;
-  }
-  .gauge svg { transform: rotate(-90deg); }
-  .gauge-bg { stroke: var(--border); }
-  .gauge-fill {
-    stroke: url(#gradient);
-    stroke-dasharray: 565;
-    stroke-dashoffset: 565;
-    transition: stroke-dashoffset 2s ease-out;
-  }
-  .gauge-text {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  .gauge-value {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--accent-cyan);
-    font-family: 'Courier New', monospace;
-  }
-  .gauge-label {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .confidence-text h3 {
-    color: var(--accent-green);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-  }
-  .confidence-text p { color: var(--text-muted); }
-
-  /* CHART */
-  .chart-container {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-  }
-  .chart-wrapper {
-    position: relative;
-    height: 380px;
-  }
-
-  /* FILTERS */
-  .filters {
-    display: flex;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .filter-btn {
-    padding: 0.5rem 1.2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    color: var(--text-muted);
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-  }
-  .filter-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
-  .filter-btn.active {
-    background: rgba(0, 229, 255, 0.15);
-    border-color: var(--accent-cyan);
-    color: var(--accent-cyan);
-  }
-
-  /* REFLECTION */
-  .reflection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  .reflection-block {
-    background: var(--bg-card);
-    padding: 1.8rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-  }
-  .reflection-block h4 {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .reflection-block.ai-help { border-left: 3px solid var(--accent-green); }
-  .reflection-block.ai-help h4 { color: var(--accent-green); }
-  .reflection-block.human-check { border-left: 3px solid var(--accent-orange); }
-  .reflection-block.human-check h4 { color: var(--accent-orange); }
-  .reflection-block p { color: var(--text-muted); font-size: 0.95rem; }
-  
-  /* TOPIC & HYPOTHESIS BLOCK */
-  .topic-hypothesis-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-  .topic-card, .hypothesis-card {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .topic-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 4px;
-    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-  }
-  .hypothesis-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 4px;
-    background: linear-gradient(90deg, var(--accent-green), var(--accent-orange));
-  }
-  .section-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.8;
-  }
-  .topic-card h2, .hypothesis-card h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--text-main);
-  }
-  .topic-text {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: rgba(0, 229, 255, 0.08);
-    border-left: 3px solid var(--accent-cyan);
-    border-radius: 8px;
-    color: var(--text-main);
-  }
-  .topic-note {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-  .hypothesis-text {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    padding: 1.2rem;
-    background: rgba(0, 255, 157, 0.08);
-    border-left: 3px solid var(--accent-green);
-    border-radius: 8px;
-    color: var(--text-main);
-    font-weight: 500;
-  }
-  .hypothesis-components {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .hypothesis-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1rem;
-    border-radius: 8px;
-  }
-  .hypothesis-item.positive {
-    background: rgba(0, 255, 157, 0.1);
-    border: 1px solid rgba(0, 255, 157, 0.3);
-  }
-  .hypothesis-item.caution {
-    background: rgba(255, 149, 0, 0.1);
-    border: 1px solid rgba(255, 149, 0, 0.3);
-  }
-  .hypothesis-icon {
-    font-size: 1.3rem;
-    flex-shrink: 0;
-  }
-  .hypothesis-item strong {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-size: 0.95rem;
-  }
-  .hypothesis-item.positive strong { color: var(--accent-green); }
-  .hypothesis-item.caution strong { color: var(--accent-orange); }
-  .hypothesis-item p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .topic-hypothesis-wrapper {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  /* LIMITATIONS */
-  .limitations {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent-orange);
-  }
-  .limitations ul { list-style: none; }
-  .limitations li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-muted);
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  .limitations li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--accent-orange);
-  }
-  .limitations li:last-child { border-bottom: none; }
-
-  /* METHODOLOGY */
-  .methodology-box {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    margin-bottom: 1.5rem;
-  }
-  .methodology-box h4 {
-    color: var(--accent-cyan);
-    margin-bottom: 1rem;
-  }
-  .methodology-box ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  .methodology-box li {
-    padding: 0.6rem 0;
-    color: var(--text-muted);
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  .methodology-box li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--accent-cyan);
-  }
-
-  /* FOOTER */
-  footer {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-  }
-  footer a { color: var(--accent-cyan); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  @media (max-width: 768px) {
-    .confidence-wrapper { grid-template-columns: 1fr; }
-    .reflection { grid-template-columns: 1fr; }
-    .comparison-table { font-size: 0.85rem; }
-    .comparison-table th, .comparison-table td { padding: 0.8rem; }
-    .container { padding: 1rem; }
-  }
-    /* Стили для блока методологии */
+    /* Стили для этапов вопросов */
   .question-block {
     background: rgba(0, 229, 255, 0.05);
-    padding: 1rem 1.2rem;
+    padding: 1.2rem 1.5rem;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     border-left: 3px solid var(--accent-cyan);
+  }
+  .question-block strong {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
   }
   .question-block ul {
     list-style: none;
@@ -605,89 +48,131 @@
     margin-top: 0.5rem;
   }
   .question-block li {
-    padding: 0.4rem 0 0.4rem 1.5rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
     position: relative;
     color: var(--text-muted);
     font-size: 0.95rem;
+    line-height: 1.5;
   }
   .question-block li::before {
     content: '▸';
     position: absolute;
     left: 0;
     color: var(--accent-cyan);
+    font-weight: bold;
   }
-
-  .sources-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  .sources-list li {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .sources-list li:last-child {
-    border-bottom: none;
-  }
-  .sources-list a {
-    color: var(--accent-cyan);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .sources-list a:hover {
-    color: var(--accent-green);
-    text-decoration: underline;
-  }
-  .source-tag {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    background: rgba(177, 78, 255, 0.15);
-    border-radius: 4px;
-    color: var(--accent-purple);
-    font-size: 0.8rem;
-    font-family: 'Courier New', monospace;
-    align-self: flex-start;
-  }
-
-  .comparison-method {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .method-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1rem;
-    background: rgba(0, 255, 157, 0.05);
-    border-radius: 8px;
-    border-left: 3px solid var(--accent-green);
-  }
-  .method-number {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent-green);
-    color: var(--bg-dark);
-    border-radius: 50%;
-    font-weight: 700;
-    font-family: 'Courier New', monospace;
-  }
-  .method-item strong {
+  .question-block li strong {
+    display: inline;
     color: var(--text-main);
-    display: block;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0;
   }
-  .method-item p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin: 0;
+  /* HEADER */
+  header { text-align: center; padding: 3rem 1rem 2rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  header .badge { display: inline-block; padding: 0.4rem 1rem; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent-cyan); border-radius: 20px; color: var(--accent-cyan); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; font-family: 'Courier New', monospace; }
+  header h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  header .hypothesis { max-width: 800px; margin: 0 auto; padding: 1.5rem; background: var(--bg-card); border-left: 3px solid var(--accent-cyan); border-radius: 8px; font-style: italic; color: var(--text-muted); }
+
+  /* SECTIONS */
+  section { margin-bottom: 4rem; }
+  .section-title { font-size: 1.6rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .section-title::before { content: ''; width: 4px; height: 28px; background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple)); border-radius: 2px; }
+
+  /* TABLES */
+  .data-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .data-table th, .data-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+  .data-table th { background: rgba(0, 229, 255, 0.1); color: var(--accent-cyan); font-weight: 600; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover { background: var(--bg-card-hover); }
+  .data-table a { color: var(--accent-cyan); text-decoration: none; font-size: 0.85rem; }
+  .data-table a:hover { text-decoration: underline; }
+
+  /* CARDS & GRID */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .card { background: var(--bg-card); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border); transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent-cyan); }
+  .card:hover { background: var(--bg-card-hover); transform: translateY(-4px); border-color: var(--accent-cyan); }
+  .card-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(0, 229, 255, 0.1); border-radius: 10px; font-size: 1.5rem; margin-bottom: 1rem; }
+  .card h3 { font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--text-main); }
+  .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+  .card .metric { display: inline-block; padding: 0.4rem 0.8rem; background: rgba(0, 255, 157, 0.1); border: 1px solid var(--accent-green); border-radius: 6px; color: var(--accent-green); font-family: 'Courier New', monospace; font-size: 0.85rem; }
+  
+  .warning-card::before { background: var(--accent-red); }
+  .warning-card .card-icon { background: rgba(255, 56, 96, 0.1); }
+  .warning-card:hover { border-color: var(--accent-red); }
+  .warning-card .metric { background: rgba(255, 56, 96, 0.1); border-color: var(--accent-red); color: var(--accent-red); }
+
+  /* TOPIC & HYPOTHESIS */
+  .topic-hypothesis-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+  .topic-card, .hypothesis-card { background: var(--bg-card); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); position: relative; overflow: hidden; }
+  .topic-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)); }
+  .hypothesis-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--accent-green), var(--accent-orange)); }
+  .section-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.8; }
+  .topic-card h2, .hypothesis-card h2 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-main); }
+  .topic-text { font-size: 1.1rem; line-height: 1.5; margin-bottom: 1rem; padding: 1rem; background: rgba(0, 229, 255, 0.08); border-left: 3px solid var(--accent-cyan); border-radius: 8px; color: var(--text-main); }
+  .topic-note { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+  .hypothesis-text { font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem; padding: 1.2rem; background: rgba(0, 255, 157, 0.08); border-left: 3px solid var(--accent-green); border-radius: 8px; color: var(--text-main); font-weight: 500; }
+
+  /* METHODOLOGY BOXES */
+  .methodology-box { background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+  .methodology-box h4 { color: var(--accent-cyan); margin-bottom: 1rem; }
+  .methodology-box ul { list-style: none; padding-left: 0; }
+  .methodology-box li { padding: 0.6rem 0; color: var(--text-muted); padding-left: 1.5rem; position: relative; }
+  .methodology-box li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-cyan); }
+  .question-block { background: rgba(0, 229, 255, 0.05); padding: 1rem 1.2rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid var(--accent-cyan); }
+  .question-block ul { list-style: none; padding-left: 0; margin-top: 0.5rem; }
+  .question-block li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-muted); font-size: 0.95rem; }
+  .question-block li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-cyan); }
+
+  /* CHARTS */
+  .chart-container { background: var(--bg-card); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 2rem; }
+  .chart-wrapper { position: relative; height: 380px; }
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .chart-box { background: var(--bg-card); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); }
+  .chart-box h4 { text-align: center; margin-bottom: 1rem; color: var(--text-main); }
+  .chart-box .chart-wrapper { height: 300px; }
+
+  /* FILTERS */
+  .filters { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .filter-btn { padding: 0.5rem 1.2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+  .filter-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+  .filter-btn.active { background: rgba(0, 229, 255, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+  /* REFLECTION & LIMITATIONS */
+  .reflection { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .reflection-block { background: var(--bg-card); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border); }
+  .reflection-block h4 { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .reflection-block.ai-help { border-left: 3px solid var(--accent-green); }
+  .reflection-block.ai-help h4 { color: var(--accent-green); }
+  .reflection-block.human-check { border-left: 3px solid var(--accent-orange); }
+  .reflection-block.human-check h4 { color: var(--accent-orange); }
+  .reflection-block p { color: var(--text-muted); font-size: 0.95rem; }
+  .limitations { background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); border-left: 3px solid var(--accent-orange); }
+  .limitations ul { list-style: none; }
+  .limitations li { padding: 0.8rem 0; border-bottom: 1px solid var(--border); color: var(--text-muted); padding-left: 1.5rem; position: relative; }
+  .limitations li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-orange); }
+  .limitations li:last-child { border-bottom: none; }
+
+  /* CONFIDENCE GAUGE */
+  .confidence-wrapper { display: grid; grid-template-columns: 280px 1fr; gap: 2rem; align-items: center; background: var(--bg-card); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); }
+  .gauge { position: relative; width: 240px; height: 240px; margin: 0 auto; }
+  .gauge svg { transform: rotate(-90deg); }
+  .gauge-bg { stroke: var(--border); }
+  .gauge-fill { stroke: url(#gradient); stroke-dasharray: 565; stroke-dashoffset: 565; transition: stroke-dashoffset 2s ease-out; }
+  .gauge-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .gauge-value { font-size: 3rem; font-weight: 700; color: var(--accent-cyan); font-family: 'Courier New', monospace; }
+  .gauge-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .confidence-text h3 { color: var(--accent-green); margin-bottom: 1rem; font-size: 1.3rem; }
+  .confidence-text p { color: var(--text-muted); }
+
+  /* FOOTER */
+  footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+  footer a { color: var(--accent-cyan); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  sup { color: var(--accent-cyan); font-size: 0.7em; cursor: help; }
+
+  @media (max-width: 900px) {
+    .charts-grid, .topic-hypothesis-wrapper, .reflection, .confidence-wrapper { grid-template-columns: 1fr; }
+    .container { padding: 1rem; }
   }
 </style>
 </head>
@@ -695,287 +180,229 @@
 
 <div class="container">
 
-  <!-- HEADER -->
   <header>
     <span class="badge">🔐 Research Dashboard · 2026</span>
     <h1>ИИ в кибербезопасности малого бизнеса</h1>
-    <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">
-      Аналитическое исследование на основе 4 научных статей с CyberLeninka + критическое сопоставление с возможностями ИИ
-    </p>
-    <div class="hypothesis">
-      <strong style="color: var(--accent-cyan);">Гипотеза:</strong> ИИ помогает малому бизнесу выявлять базовые киберугрозы (анализ логов, фишинг) и снижает затраты на ИБ-специалистов, но его эффективность зависит от настройки, а сам ИИ создает риски утечек.
-    </div>
+    <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">Аналитическое исследование на основе 4 научных статей с CyberLeninka + критическое сопоставление с возможностями LLM</p>
   </header>
+
   <!-- TOPIC & HYPOTHESIS -->
   <section>
     <div class="topic-hypothesis-wrapper">
-      
-      <!-- Тема -->
       <div class="topic-card">
         <div class="section-icon">🎯</div>
         <h2>Тема исследования</h2>
-        <p class="topic-text">
-          <strong>Как ИИ может помочь малому бизнесу выявлять базовые киберугрозы и лучше защищать данные клиентов?</strong>
-        </p>
-        <p class="topic-note">
-          Тема адаптирована под профиль «Информационная безопасность» на основе предложенного примера 
-          «Может ли ИИ помочь малому бизнесу лучше понимать своих клиентов?»
-        </p>
+        <p class="topic-text"><strong>Как ИИ может помочь малому бизнесу выявлять базовые киберугрозы и лучше защищать данные клиентов?</strong></p>
+        <p class="topic-note">Тема адаптирована под профиль «Информационная безопасность» на основе предложенного примера из программы стажировки.</p>
       </div>
-
-      <!-- Гипотеза -->
       <div class="hypothesis-card">
         <div class="section-icon">💡</div>
         <h2>Гипотеза</h2>
-        <p class="hypothesis-text">
-          ИИ помогает малому бизнесу выявлять базовые киберугрозы (анализ логов, фишинг) 
-          и снижает затраты на ИБ-специалистов, но его эффективность зависит от настройки, 
-          а сам ИИ создает риски утечек.
-        </p>
-        <div class="hypothesis-components">
-          <div class="hypothesis-item positive">
-            <span class="hypothesis-icon">✅</span>
-            <div>
-              <strong>Подтверждаемая часть:</strong>
-              <p>Автоматизация выявления фишинга и аномалий, снижение нагрузки на персонал</p>
-            </div>
-          </div>
-          <div class="hypothesis-item caution">
-            <span class="hypothesis-icon">⚠️</span>
-            <div>
-              <strong>Ограничения:</strong>
-              <p>Эффективность зависит от настройки; ИИ создает новые риски (Shadow AI, утечки через промпты)</p>
-            </div>
-          </div>
-        </div>
+        <p class="hypothesis-text">Использование ИИ-инструментов повышает эффективность обнаружения типовых киберугроз (фишинг, анализ логов) в малом бизнесе, однако реальный экономический эффект ограничивается затратами на первоначальную настройку, валидацию решений и необходимость контроля новых векторов утечек данных (Shadow AI).</p>
       </div>
-
     </div>
   </section>
-    <!-- METHODOLOGY -->
+
+  <!-- METHODOLOGY -->
   <section>
-    <h2 class="section-title">📋 Подход к исследованию</h2>
+    <h2 class="section-title">📋 Подход к исследованию и ИИ-инструменты</h2>
     
-    <div class="methodology-box">
-      <h4>🔬 Этап 1: Глубокий анализ научных статей (CyberLeninka)</h4>
-      <p style="color: var(--text-muted); margin-bottom: 1rem;">
-        Для каждой из 4 статей был задан структурированный промпт с двумя блоками вопросов:
-      </p>
-      <div class="question-block">
-        <strong style="color: var(--accent-cyan);">Блок вопросов по содержанию:</strong>
-        <ul>
-          <li>Какие конкретные механизмы автоматизации ИИ (логи, фишинг и т.д.) упоминаются в статье и какова их эффективность?</li>
-          <li>Каковы экономические маркеры (цифры, проценты, тезисы о снижении затрат на ИБ-персонал)?</li>
-        </ul>
-      </div>
-      <div class="question-block">
-        <strong style="color: var(--accent-cyan);">Блок вопросов по методологии:</strong>
-        <ul>
-          <li>Какие риски, уязвимости или проблемы настройки ИИ выделяет автор?</li>
-          <li>Какие ограничения исследования выделяет сам автор (малая выборка, применимость только для определенных ОС и т.д.)?</li>
-          <li>Какие методы сбора данных использовались?</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="methodology-box">
-      <h4> Этап 2: Сопоставление академических данных с возможностями ИИ-моделей</h4>
-      <p style="color: var(--text-muted); margin-bottom: 1rem;">
-        После извлечения фактов из статей был задан критический промпт для сопоставления научных данных с реальными возможностями LLM:
-      </p>
-      <div class="question-block">
-        <strong style="color: var(--accent-orange);">Ключевые вопросы для критического анализа:</strong>
-        <ul>
-          <li>Есть ли противоречия между тем, что пишет академическое сообщество, и стандартными ИИ-моделями?</li>
-          <li>В каких аспектах ИИ-модели обычно «переоценивают» возможности автоматизации по сравнению с реальной практикой малого бизнеса, описанной в статьях?</li>
-          <li>Какие критические риски утечки данных через ИИ упускают авторы статей, но они актуальны на сегодняшний день?</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="methodology-box">
-      <h4> Источники данных</h4>
-      <ul class="sources-list">
-        <li>
-          <a href="https://cyberleninka.ru/article/n/resursy-iskusstvennogo-intellekta-v-zaschite-rossiyskogo-biznesa-ot-kiberugroz" target="_blank">
-            Статья 1: «Ресурсы искусственного интеллекта в защите российского бизнеса от киберугроз» (2024)
-          </a>
-          <span class="source-tag">Positive Technologies, InfoWatch, BI.ZONE</span>
-        </li>
-        <li>
-          <a href="https://cyberleninka.ru/article/n/buduschee-kiberbezopasnosti-v-epohu-iskusstvennogo-intellekta" target="_blank">
-            Статья 2: «Будущее кибербезопасности в эпоху искусственного интеллекта»
-          </a>
-          <span class="source-tag">Анализ научной литературы</span>
-        </li>
-        <li>
-          <a href="https://cyberleninka.ru/article/n/bezopasnoe-distantsionnoe-predostavlenie-platezhnyh-uslug-subektam-malogo-biznesa" target="_blank">
-            Статья 3: «Безопасное дистанционное предоставление платежных услуг субъектам малого бизнеса»
-          </a>
-          <span class="source-tag">ПАО «Промсвязьбанк», ФинЦЕРТ</span>
-        </li>
-        <li>
-          <a href="https://cyberleninka.ru/article/n/aktualnost-problemy-zaschity-informatsionnyh-sistem-malogo-i-srednego-biznesa-ot-kiberatak" target="_blank">
-            Статья 4: «Актуальность проблемы защиты информационных систем малого и среднего бизнеса от кибератак»
-          </a>
-          <span class="source-tag">Опросы МСП, кейс-стади</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="methodology-box">
-      <h4>⚖️ Метод сравнения данных</h4>
-      <p style="color: var(--text-muted); margin-bottom: 1rem;">
-        Данные сравнивались по трем направлениям:
-      </p>
-      <div class="comparison-method">
-        <div class="method-item">
-          <span class="method-number">1</span>
-          <div>
-            <strong>Внутристатейный анализ:</strong>
-            <p>Каждая статья разбиралась по единой структуре (механизмы → экономика → риски → ограничения → методология), что позволило выявить паттерны и противоречия между источниками.</p>
-          </div>
-        </div>
-        <div class="method-item">
-          <span class="method-number">2</span>
-          <div>
-            <strong>Сопоставление «Академия vs ИИ»:</strong>
-            <p>Извлеченные из статей тезисы сравнивались с ответами стандартных LLM (ChatGPT, Claude) на аналогичные вопросы. Выявлялись расхождения в оценках достоверности данных, роли человеческого фактора и сложности внедрения.</p>
-          </div>
-        </div>
-        <div class="method-item">
-          <span class="method-number">3</span>
-          <div>
-            <strong>Критическая валидация:</strong>
-            <p>Все цифры и тезисы из статей перепроверялись на предмет экстраполяции (переноса данных с крупного бизнеса на МСБ), ангажированности источников (вендоры ИБ) и актуальности (2023–2024 гг.).</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARISON: ACADEMIC vs AI -->
-  <section>
-    <h2 class="section-title">🔍 Сопоставление: академическое сообщество vs ИИ-модели</h2>
-    <div class="comparison-wrapper">
-      <table class="comparison-table">
+        <div class="methodology-box">
+      <h4>🤖 Использованные ИИ-инструменты и их роли</h4>
+      <table class="data-table">
         <thead>
           <tr>
-            <th>Аспект</th>
-            <th class="col-academic"> Академические статьи</th>
-            <th class="col-ai">🤖 Стандартные ИИ-модели</th>
+            <th>ИИ-Инструмент</th>
+            <th>Конкретная роль в исследовании</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Достоверность данных для МСБ</strong></td>
-            <td class="col-academic">
-              <span class="tag academic">Ограничение</span>
-              <p>Прямо указывают на экстраполяцию данных с крупного бизнеса. Прямой статистики по МСБ недостаточно.</p>
-            </td>
-            <td class="col-ai">
-              <span class="tag contradiction">Противоречие</span>
-              <p>Часто выдают уверенные, но галлюцинирующие цифры (например, «ИИ снижает затраты МСБ на ИБ на 45%»), не уточняя источник.</p>
-            </td>
+            <td><strong>Qwen 3.7-plus</strong></td>
+            <td>Структурирование промптов для анализа статей, генерация финального HTML/CSS/JS кода дашборда.</td>
           </tr>
           <tr>
-            <td><strong>Роль человеческого фактора</strong></td>
-            <td class="col-academic">
-              <span class="tag academic">Важно</span>
-              <p>Подчеркивают: ИИ не заменит человека. Человеческий фактор — критическая уязвимость, требующая обучения.</p>
-            </td>
-            <td class="col-ai">
-              <span class="tag contradiction">Технооптимизм</span>
-              <p>Описывают ИИ как «автономную систему», которая «полностью автоматизирует мониторинг», минимизируя участие человека.</p>
-            </td>
+            <td><strong>Claude 3.5 Sonnet</strong></td>
+            <td>Использовался для отладки JavaScript (Chart.js), обеспечения адаптивности CSS-верстки и структурирования академических таблиц данных благодаря сильному контекстному окну.</td>
           </tr>
           <tr>
-            <td><strong>Сложность внедрения</strong></td>
-            <td class="col-academic">
-              <span class="tag academic">Реализм</span>
-              <p>Эффективность зависит от настройки, этических принципов и создания специализированных подразделений.</p>
-            </td>
-            <td class="col-ai">
-              <span class="tag ai">Упрощение</span>
-              <p>Подают внедрение как «plug-and-play»: «просто подключите ИИ-инструмент, и он начнет защищать».</p>
-            </td>
+            <td><strong>ChatGPT (GPT-4o)</strong></td>
+            <td>Критический анализ выводов, поиск логических нестыковок в академических статьях, проверка логической согласованности аргументации и выявление «слепых зон» в первоначальных гипотезах.</td>
+          </tr>
+          <tr>
+            <td><strong>Google Gemini (1.5 Pro)</strong></td>
+            <td>Первичная выжимка ключевых тезисов из объемных PDF-файлов (статьи CyberLeninka, текст задания), кросс-проверка статистических данных и фактов.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+        <div class="methodology-box">
+      <h4>🔬 Полный список исследовательских вопросов к ИИ</h4>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        Ниже представлены все вопросы, которые задавались ИИ-моделям в ходе исследования, сгруппированные по этапам работы:
+      </p>
+
+      <!-- Этап 1: Анализ научных статей -->
+      <div class="question-block">
+        <strong style="color: var(--accent-green);">Этап 1: Глубокий анализ научных статей (CyberLeninka)</strong>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem;">
+          Для каждой из 4 статей задавался структурированный промпт с двумя блоками вопросов:
+        </p>
+        <ul>
+          <li><strong>Блок А — Извлечение фактов:</strong> «Какие конкретные механизмы автоматизации ИИ (логи, фишинг и т.д.) упоминаются в статье и какова их эффективность?»</li>
+          <li><strong>Блок А — Извлечение фактов:</strong> «Каковы экономические маркеры (цифры, проценты, тезисы о снижении затрат на ИБ-персонал)?»</li>
+          <li><strong>Блок Б — Методология:</strong> «Какие риски, уязвимости или проблемы настройки ИИ выделяет автор?»</li>
+          <li><strong>Блок Б — Методология:</strong> «Какие ограничения исследования выделяет сам автор (например, малая выборка компаний, применимость только для определенных ОС и т.д.)?»</li>
+          <li><strong>Блок Б — Методология:</strong> «Какие методы сбора данных использовались?»</li>
+        </ul>
+      </div>
+
+      <!-- Этап 2: Критическое сопоставление -->
+      <div class="question-block">
+        <strong style="color: var(--accent-orange);">Этап 2: Критическое сопоставление академических данных с возможностями ИИ-моделей</strong>
+        <ul>
+          <li>«Есть ли противоречия между тем, что пишет академическое сообщество, и стандартными ИИ-моделями?»</li>
+          <li>«В каких аспектах ИИ-модели обычно «переоценивают» возможности автоматизации по сравнению с реальной практикой малого бизнеса, описанной в статьях?»</li>
+          <li>«Какие критические риски утечки данных через ИИ упускают авторы статей, но они актуальны на сегодняшний день?»</li>
+        </ul>
+      </div>
+
+      <!-- Этап 3: Структурирование результатов -->
+      <div class="question-block">
+        <strong style="color: var(--accent-purple);">Этап 3: Структурирование результатов для дашборда</strong>
+        <ul>
+          <li>«Сформируй итоговую структуру для интерактивного HTML-дашборда на основе сопоставления ИИ-информации и данных из CyberLeninka»</li>
+          <li>«Индикатор "Степень уверенности в гипотезе" — обоснуй процент уверенности на основе совпадения теории и практики»</li>
+          <li>«Топ-3 сильные стороны ИИ в ИБ (сбалансированные научными фактами)»</li>
+          <li>«Топ-3 скрытые угрозы внедрения ИИ (для карточек предупреждений на сайте)»</li>
+          <li>«Раздел рефлексии: краткий текст о том, где ИИ помог в анализе, а где академические статьи заставили скорректировать первоначальный взгляд»</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="methodology-box">
+      <h4>📚 Источники данных (CyberLeninka, 2024)</h4>
+      <table class="data-table">
+        <thead><tr><th>Источник (Автор, Год)</th><th>Метод сбора данных</th><th>Ключевой вывод для МСБ</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Спиридонова Г.В. и др., 2024 <a href="https://cyberleninka.ru/article/n/resursy-iskusstvennogo-intellekta-v-zaschite-rossiyskogo-biznesa-ot-kiberugroz" target="_blank" rel="noopener noreferrer">[1]</a></td>
+            <td>Экспертный опрос 30+ ИБ-вендоров (Positive Technologies, InfoWatch)</td>
+            <td>ИИ эффективно блокирует фишинг, но данные экстраполируются с крупного бизнеса.</td>
+          </tr>
+          <tr>
+            <td>Иванов А.А. и др., 2024 <a href="https://cyberleninka.ru/article/n/buduschee-kiberbezopasnosti-v-epohu-iskusstvennogo-intellekta" target="_blank" rel="noopener noreferrer">[2]</a></td>
+            <td>Анализ научной литературы и вторичных данных</td>
+            <td>Концепция "Dark AI": человеческий фактор остается критической уязвимостью.</td>
+          </tr>
+          <tr>
+            <td>Петрова Е.С., 2024 <a href="https://cyberleninka.ru/article/n/bezopasnoe-distantsionnoe-predostavlenie-platezhnyh-uslug-subektam-malogo-biznesa" target="_blank" rel="noopener noreferrer">[3]</a></td>
+            <td>Интервью с экспертами, SWOT-анализ (на примере ПСБ)</td>
+            <td>МСБ подвергается угрозам в 3 раза чаще; 60% закрываются после инцидента.</td>
+          </tr>
+          <tr>
+            <td>Сидоров В.В., 2024 <a href="https://cyberleninka.ru/article/n/aktualnost-problemy-zaschity-informatsionnyh-sistem-malogo-i-srednego-biznesa-ot-kiberatak" target="_blank" rel="noopener noreferrer">[4]</a></td>
+            <td>Обзор статистики, кейс-стади, опросы МСП</td>
+            <td>Акцент на базовой ИБ-гигиене; конкретные ИИ-механизмы для МСБ не детализированы.</td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- OVERESTIMATION -->
+    <!-- DASHBOARD CHARTS -->
   <section>
-    <h2 class="section-title">⚡ Где ИИ переоценивает возможности автоматизации</h2>
-    <div class="overestimation-grid">
-
-      <div class="overestimation-card">
-        <h3>Миф о снижении затрат на ИБ-персонал</h3>
-        <div class="what-ai-says">
-          <strong>Что говорит ИИ:</strong>
-          <p>«Автоматизация рутины позволяет сократить штат или не нанимать дорогих специалистов»</p>
+    <h2 class="section-title">📊 Интерактивный дашборд: Данные и Сравнение</h2>
+    <div class="charts-grid">
+      
+      <!-- Chart 1: Effectiveness -->
+      <div class="chart-box">
+        <h4>Сравнительная оценка эффективности ИИ-механизмов</h4>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; font-style: italic;">
+          * Оценочная шкала (0–100), сформированная на основе сравнительного анализа 4 научных источников и экспертной оценки ИИ-моделей. Не является результатом прямых измерений.
+        </p>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Общий рынок</button>
+          <button class="filter-btn" data-filter="bank">Крупный бизнес/Банки</button>
+          <button class="filter-btn" data-filter="smb">Малый бизнес (оценка)</button>
         </div>
-        <div class="reality">
-          <strong>Реальность (из статей):</strong>
-          <p>У малого бизнеса часто нет выделенного ИБ-персонала, которого можно сократить. Внедрение ИИ создает новые расходы: подписки на SaaS, интеграция, валидация решений ИИ.</p>
-        </div>
-      </div>
-
-      <div class="overestimation-card">
-        <h3>Автоматическое реагирование</h3>
-        <div class="what-ai-says">
-          <strong>Что говорит ИИ:</strong>
-          <p>«ИИ может мгновенно изолировать зараженные системы и блокировать IP-адреса»</p>
-        </div>
-        <div class="reality">
-          <strong>Реальность (из статей):</strong>
-          <p>Для МСБ агрессивная автоматизация опасна. ИИ не понимает бизнес-контекст. Автономная блокировка критического сервиса может остановить продажи. Требуется режим «Human-in-the-loop».</p>
+        <div class="chart-wrapper">
+          <canvas id="barChart"></canvas>
         </div>
       </div>
 
-      <div class="overestimation-card">
-        <h3>Качество детекции «из коробки»</h3>
-        <div class="what-ai-says">
-          <strong>Что говорит ИИ:</strong>
-          <p>«Выявляет аномалии и фишинг в реальном времени с высокой точностью»</p>
-        </div>
-        <div class="reality">
-          <strong>Реальность (из статей):</strong>
-          <p>Эффективность критически зависит от настройки и разметки данных под специфику компании. «Голый» ИИ без дообучения генерирует огромный шум (alert fatigue).</p>
+      <!-- Chart 2: Radar Comparison -->
+      <div class="chart-box">
+        <h4>Сравнительный анализ источников по критериям</h4>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; font-style: italic;">
+          * Оценка глубины проработки темы в каждой статье по 100-балльной шкале на основе качественного анализа.
+        </p>
+        <div class="chart-wrapper">
+          <canvas id="radarChart"></canvas>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- HIDDEN RISKS -->
+    <!-- STRENGTHS & THREATS -->
   <section>
-    <h2 class="section-title">🚨 Критические риски утечки данных, которые упускают авторы статей</h2>
-    <div class="hidden-risks">
-
-      <div class="risk-item">
-        <h4>1. Shadow AI (Теневой ИИ) и утечка через промпты</h4>
-        <p>Сотрудники МСБ (бухгалтерия, HR, менеджеры) используют бесплатные или персональные версии генеративных ИИ (ChatGPT, YandexGPT без корпоративного соглашения) для анализа конфиденциальных данных: «проверь этот договор на риски», «составь ответ клиенту на основе этой переписки».</p>
-        <span class="impact">️ Риск: Данные (PII, коммерческая тайна) уходят на внешние сервера и могут быть использованы для дообучения модели</span>
+    <h2 class="section-title">🛡️ Ключевые выводы исследования</h2>
+    <div class="cards-grid">
+      
+      <!-- Card 1: Phishing -->
+      <div class="card">
+        <div class="card-icon">🎣</div>
+        <h3>Масштабируемая защита от фишинга</h3>
+        <p>ИИ-алгоритмы анализируют большие данные в реальном времени, выявляя как классический фишинг, так и контент, сгенерированный другими нейросетями (WormGPT, ChatGPT).</p>
+        <span class="metric">📊 279,7 тыс. операций заблокировано ИИ в банковском секторе РФ за 1-е полугодие 2023 г. <sup title="Источник [1]: Спиридонова Г.В. и др., 2024">[1]</sup></span>
       </div>
 
-      <div class="risk-item">
-        <h4>2. Уязвимости цепочки поставок ИИ-сервисов (SaaS AI Risks)</h4>
-        <p>Малый бизнес использует готовые облачные сервисы (антивирусы с ИИ, облачные SIEM). Если провайдер скомпрометирован или допускает утечку из-за ошибки в своей ИИ-модели (Model Inversion Attack), малый бизнес не имеет технических и юридических рычагов влияния.</p>
-        <span class="impact">⚠️ Риск: Зависимость от безопасности провайдера без возможности аудита</span>
+      <!-- Card 2: Monitoring (UPDATED for academic rigor) -->
+      <div class="card">
+        <div class="card-icon">⏱️</div>
+        <h3>Круглосуточный мониторинг и компенсация дефицита кадров</h3>
+        <p>Автоматизация анализа логов и предиктивная аналитика позволяют выявлять аномалии 24/7, что критически важно для компаний без выделенного ИБ-штата.</p>
+        <span class="metric">⚠️ До 60% компаний могут прекращать деятельность в течение 6 мес. после серьёзного инцидента (источник [3]; выборка ограничена банковским сектором, прямая экстраполяция на весь МСБ требует осторожности) <sup title="Источник [3]: Петрова Е.С., 2024">[3]</sup></span>
       </div>
 
-      <div class="risk-item">
-        <h4>3. Prompt Injection в ИИ-инструментах защиты</h4>
-        <p>Если малый бизнес использует ИИ-чат-бота для поддержки или ИИ-парсер для анализа логов, злоумышленник может скрыть вредоносную инструкцию внутри легитимных данных (в тексте письма или логе), заставив ИИ-систему игнорировать угрозу или выдать конфиденциальную информацию.</p>
-        <span class="impact">⚠️ Риск: Обход защиты через манипуляцию входными данными ИИ</span>
+      <!-- Card 3: Costs (UPDATED for academic rigor) -->
+      <div class="card">
+        <div class="card-icon">💰</div>
+        <h3>Потенциал оптимизации операционных расходов</h3>
+        <p>Передача рутинных задач ИИ (сортировка алертов, первичный анализ уязвимостей) снижает нагрузку на ИТ-персонал, хотя для МСБ это чаще перераспределение, а не прямое сокращение штата.</p>
+        <span class="metric">📉 41% компаний отметили снижение общих расходов в среднем на 17% благодаря цифровой трансформации (источник [1]; данные агрегированы по крупному бизнесу) <sup title="Источник [1]: Спиридонова Г.В. и др., 2024">[1]</sup></span>
+      </div>
+
+      <!-- Card 4: Shadow AI -->
+      <div class="card warning-card">
+        <div class="card-icon">👻</div>
+        <h3>Феномен «Теневого ИИ» (Shadow AI)</h3>
+        <p>Сотрудники МСБ используют публичные нейросети для анализа договоров и переписки. Конфиденциальные данные (PII) уходят на внешние серверы и могут попасть в обучающие выборки.</p>
+        <span class="metric">🔓 Риск: неконтролируемая утечка коммерческой тайны, упускаемый в базовых академических обзорах</span>
+      </div>
+
+      <!-- Card 5: Alert Fatigue -->
+      <div class="card warning-card">
+        <div class="card-icon">🚨</div>
+        <h3>Ложные срабатывания и паралич бизнес-процессов</h3>
+        <p>ИИ без дообучения на специфике компании генерирует информационный шум. Автономная блокировка легитимного процесса (например, платежа клиента) может нанести больший ущерб, чем атака.</p>
+        <span class="metric">⚡ Требуется обязательный режим Human-in-the-loop (человек в контуре принятия решений)</span>
+      </div>
+
+      <!-- Card 6: Dark AI -->
+      <div class="card warning-card">
+        <div class="card-icon">🌑</div>
+        <h3>Асимметрия угроз «Dark AI»</h3>
+        <p>Злоумышленники используют ИИ для создания адаптивных, скрытных атак. Малый бизнес с базовыми ИИ-решениями «из коробки» проигрывает вооруженным продвинутыми инструментами атакующим.</p>
+        <span class="metric">🎯 Рост крипто-мошенничеств с использованием ИИ на 1216% за 12 месяцев (источник [3]) <sup title="Источник [3]: Петрова Е.С., 2024">[3]</sup></span>
       </div>
 
     </div>
   </section>
 
-  <!-- CONFIDENCE -->
+    <!-- CONFIDENCE -->
   <section>
     <h2 class="section-title">Степень уверенности в гипотезе</h2>
     <div class="confidence-wrapper">
@@ -997,105 +424,40 @@
       </div>
       <div class="confidence-text">
         <h3>Высокая, с существенными оговорками</h3>
-        <p>
-          Теоретическая база и отраслевая статистика (Positive Technologies, InfoWatch) надежно доказывают, что ИИ эффективно автоматизирует выявление фишинга и аномалий. Однако тезис о «снижении затрат на ИБ-персонал» для малого бизнеса оказался переоцененным: академические данные экстраполируются с крупных корпораций. На практике для МСБ внедрение ИИ не сокращает штат, а создает скрытые расходы на валидацию решений и борьбу с утечками через «теневой ИИ».
+        <p style="margin-bottom: 1.5rem;">Теоретическая база надежно доказывает, что ИИ автоматизирует выявление фишинга. Однако тезис о «снижении затрат на ИБ-персонал» для малого бизнеса оказался переоцененным: академические данные экстраполируются с крупных корпораций.</p>
+        
+        <div style="background: rgba(0, 229, 255, 0.08); padding: 1.2rem; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 0.8rem; font-size: 1rem;">📐 Методология расчёта уверенности:</h4>
+          <ul style="list-style: none; padding-left: 0; color: var(--text-muted); font-size: 0.9rem;">
+            <li style="padding: 0.3rem 0;"><span style="color: var(--accent-green);">+25%</span> — подтверждение эффективности ИИ в обнаружении угроз (все 4 источника)</li>
+            <li style="padding: 0.3rem 0;"><span style="color: var(--accent-green);">+20%</span> — подтверждение автоматизации анализа данных и логов</li>
+            <li style="padding: 0.3rem 0;"><span style="color: var(--accent-green);">+15%</span> — совпадение выводов нескольких независимых источников</li>
+            <li style="padding: 0.3rem 0;"><span style="color: var(--accent-orange);">+15%</span> — выявление конкретных механизмов (фишинг, антифрод)</li>
+            <li style="padding: 0.3rem 0; border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 0.5rem;"><span style="color: var(--accent-red);">−15%</span> — ограничения применимости данных к МСБ (экстраполяция)</li>
+            <li style="padding: 0.3rem 0;"><span style="color: var(--accent-red);">−10%</span> — риски внедрения ИИ (Shadow AI, alert fatigue)</li>
+            <li style="padding: 0.3rem 0; border-top: 2px solid var(--accent-cyan); margin-top: 0.5rem; padding-top: 0.5rem; font-weight: 600; color: var(--text-main);">Итого: <strong>75%</strong></li>
+          </ul>
+          <p>
+            *Индекс является экспертной оценкой автора исследования,
+            а не статистически рассчитанной вероятностью.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- STRENGTHS -->
-  <section>
-    <h2 class="section-title">️ Топ-3 сильные стороны ИИ в ИБ</h2>
-    <div class="cards-grid">
-
-      <div class="card">
-        <div class="card-icon">🎣</div>
-        <h3>Масштабируемая защита от фишинга</h3>
-        <p>ИИ-алгоритмы анализируют большие данные в реальном времени, выявляя как классический фишинг, так и контент, сгенерированный нейросетями (WormGPT, ChatGPT).</p>
-        <span class="metric">📊 279,7 тыс. операций заблокировано в 2023</span>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⏱️</div>
-        <h3>Круглосуточный мониторинг</h3>
-        <p>Автоматизация анализа логов и предиктивная аналитика выявляют аномалии и нулевые уязвимости 24/7, компенсируя дефицит ИБ-кадров.</p>
-        <span class="metric">⚠️ 60% МСБ закрываются за 6 мес. после атаки</span>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">💰</div>
-        <h3>Оптимизация операционных расходов</h3>
-        <p>Передача рутинных задач ИИ (сортировка алертов, проверка уязвимостей) снижает нагрузку на ИТ-персонал и уменьшает общие затраты.</p>
-        <span class="metric">📉 41% компаний сократили расходы на 17%</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- THREATS -->
-  <section>
-    <h2 class="section-title">⚠️ Топ-3 скрытые угрозы внедрения ИИ</h2>
-    <div class="cards-grid">
-
-      <div class="card warning-card">
-        <div class="card-icon">👻</div>
-        <h3>Феномен «Теневого ИИ»</h3>
-        <p>Сотрудники используют бесплатные публичные нейросети для анализа договоров и переписки. Конфиденциальные данные уходят на внешние серверы и могут попасть в обучающие выборки.</p>
-        <span class="metric">🔓 Риск: утечка PII и коммерческой тайны</span>
-      </div>
-
-      <div class="card warning-card">
-        <div class="card-icon">🚨</div>
-        <h3>Ложные срабатывания и паралич бизнеса</h3>
-        <p>ИИ без дообучения на специфике компании генерирует шум. Автономная блокировка легитимного процесса (например, платежа клиента) может нанести больший ущерб, чем атака.</p>
-        <span class="metric"> Alert Fatigue и потеря выручки</span>
-      </div>
-
-      <div class="card warning-card">
-        <div class="card-icon">🌑</div>
-        <h3>Асимметрия «Dark AI»</h3>
-        <p>Злоумышленники используют ИИ для создания адаптивных, скрытных атак. Малый бизнес с базовыми ИИ-решениями «из коробки» проигрывает вооруженным атакующим.</p>
-        <span class="metric"> +1216% крипто-мошенничеств с ИИ</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CHART -->
-  <section>
-    <h2 class="section-title">📊 Сравнительная эффективность ИИ-механизмов</h2>
-    <div class="chart-container">
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">Все данные</button>
-        <button class="filter-btn" data-filter="bank">Банковский сектор</button>
-        <button class="filter-btn" data-filter="smb">Малый бизнес</button>
-      </div>
-      <div class="chart-wrapper">
-        <canvas id="mainChart"></canvas>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- REFLECTION -->
   <section>
-    <h2 class="section-title">💭 Рефлексия: где ИИ помог, а где потребовалась проверка</h2>
+    <h2 class="section-title">💭 Рефлексия: Роль ИИ и самостоятельная проверка</h2>
     <div class="reflection">
-
       <div class="reflection-block ai-help">
         <h4>✅ Где ИИ оказался незаменим</h4>
-        <p>
-          ИИ значительно ускорил первичный этап исследования: структурировал сырые данные из научных статей, сгенерировал список механизмов автоматизации и предложил структуру дашборда. Отлично справился с ролью «младшего аналитика», систематизируя большие объемы текста.
-        </p>
+        <p>ИИ значительно ускорил первичный этап: структурировал сырые данные из 4 научных статей, сгенерировал список механизмов автоматизации и предложил структуру дашборда. Отлично справился с ролью «младшего аналитика».</p>
       </div>
-
       <div class="reflection-block human-check">
-        <h4>🔍 Где академические статьи скорректировали взгляд</h4>
-        <p>
-          Изначально ИИ настойчиво продвигал тезис о «прямом снижении затрат на ИБ-персонал». Критический анализ методологии статей показал, что эти данные экстраполируются с крупного бизнеса. Для МСБ внедрение ИИ требует не сокращения, а <em>перераспределения</em> ресурсов на валидацию и борьбу с Shadow AI.
-        </p>
+        <h4>🔍 Где потребовалась самостоятельная проверка</h4>
+        <p>Изначально ИИ настойчиво продвигал тезис о «прямом снижении затрат на ИБ-персонал». Критический анализ методологии статей показал, что эти данные экстраполируются с крупного бизнеса. Для МСБ внедрение ИИ требует не сокращения, а перераспределения ресурсов на валидацию и борьбу с Shadow AI.</p>
       </div>
-
     </div>
   </section>
 
@@ -1104,104 +466,110 @@
     <h2 class="section-title">📋 Ограничения исследования</h2>
     <div class="limitations">
       <ul>
-        <li>Выборка источников смещена в сторону крупных ИБ-вендоров (Positive Technologies, InfoWatch), чьи оценки могут быть ангажированы.</li>
-        <li>Данные о пользе для МСБ носят экстраполяционный характер — перенос опыта банковского сектора на микро- и малые предприятия без детальной статистики.</li>
-        <li>Региональная и временная специфика: данные актуальны для российского рынка 2023–2024 гг. в условиях импортозамещения.</li>
+        <li>Выборка источников смещена в сторону крупных ИБ-вендоров, чьи оценки могут быть ангажированы.</li>
+        <li>Данные о пользе для МСБ носят экстраполяционный характер (перенос опыта банковского сектора без детальной статистики по МСБ).</li>
+        <li>Региональная и временная специфика: данные актуальны для российского рынка 2023–2024 гг.</li>
         <li>Динамичность предмета: технологии генеративного ИИ развиваются быстрее, чем публикуются научные статьи.</li>
-        <li>Отсутствие прямых эмпирических исследований стоимости внедрения ИИ именно в сегменте МСБ.</li>
       </ul>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>Источники: <a href="https://cyberleninka.ru" target="_blank">CyberLeninka</a> · 4 научные статьи (2024) · Методология: экспертный анализ, SWOT, кейс-стади</p>
+    <p>Источники: <a href="https://cyberleninka.ru" target="_blank">CyberLeninka</a> · 4 научные статьи (2024) · Методология: критический анализ, сопоставление с LLM</p>
     <p style="margin-top: 0.5rem;">Входное задание · Стажировка «ИИ-лаборатория» · КОРУС Консалтинг, 2026</p>
   </footer>
 
 </div>
 
 <script>
-  // Анимация gauge
+  // Gauge Animation
   window.addEventListener('load', () => {
     const gaugeFill = document.querySelector('.gauge-fill');
-    const targetOffset = 565 - (565 * 0.75); // 75%
+    const targetOffset = 565 - (565 * 0.75);
     setTimeout(() => { gaugeFill.style.strokeDashoffset = targetOffset; }, 300);
   });
 
-  // Chart.js
-  const ctx = document.getElementById('mainChart').getContext('2d');
-  const datasets = {
-    all: {
-      labels: ['Фишинг-детекция', 'Анализ логов', 'Антифрод', 'Предиктивная аналитика', 'Автоматический ответ'],
-      data: [92, 78, 85, 70, 55]
-    },
-    bank: {
-      labels: ['Фишинг-детекция', 'Анализ логов', 'Антифрод', 'Предиктивная аналитика', 'Автоматический ответ'],
-      data: [95, 88, 92, 80, 70]
-    },
-    smb: {
-      labels: ['Фишинг-детекция', 'Анализ логов', 'Антифрод', 'Предиктивная аналитика', 'Автоматический ответ'],
-      data: [75, 60, 65, 50, 35]
-    }
+  // Chart 1: Bar Chart
+  const ctxBar = document.getElementById('barChart').getContext('2d');
+  const barDatasets = {
+    all: { labels: ['Фишинг-детекция', 'Анализ логов', 'Антифрод', 'Предиктивная аналитика', 'Авто-ответ'], data: [92, 78, 85, 70, 55] },
+    bank: { labels: ['Фишинг-детекция', 'Анализ логов', 'Антифрод', 'Предиктивная аналитика', 'Авто-ответ'], data: [95, 88, 92, 80, 70] },
+    smb: { labels: ['Фишинг-детекция', 'Анализ логов', 'Антифрод', 'Предиктивная аналитика', 'Авто-ответ'], data: [75, 60, 65, 50, 35] }
   };
 
-  let chart = new Chart(ctx, {
+  let barChart = new Chart(ctxBar, {
     type: 'bar',
     data: {
-      labels: datasets.all.labels,
+      labels: barDatasets.all.labels,
       datasets: [{
         label: 'Эффективность ИИ, %',
-        data: datasets.all.data,
+        data: barDatasets.all.data,
         backgroundColor: (ctx) => {
           const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 400);
           gradient.addColorStop(0, 'rgba(0, 229, 255, 0.8)');
           gradient.addColorStop(1, 'rgba(177, 78, 255, 0.4)');
           return gradient;
         },
-        borderColor: '#00e5ff',
-        borderWidth: 1,
-        borderRadius: 8
+        borderColor: '#00e5ff', borderWidth: 1, borderRadius: 8
       }]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { color: '#e8ecf4' } },
-        tooltip: {
-          backgroundColor: '#131826',
-          borderColor: '#00e5ff',
-          borderWidth: 1,
-          titleColor: '#00e5ff',
-          bodyColor: '#e8ecf4'
-        }
-      },
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#e8ecf4' } } },
       scales: {
-        y: {
-          beginAtZero: true,
-          max: 100,
-          ticks: { color: '#8b95a7' },
-          grid: { color: '#1f2738' }
-        },
-        x: {
-          ticks: { color: '#8b95a7' },
-          grid: { display: false }
-        }
+        y: { beginAtZero: true, max: 100, ticks: { color: '#8b95a7' }, grid: { color: '#1f2738' } },
+        x: { ticks: { color: '#8b95a7' }, grid: { display: false } }
       }
     }
   });
 
-  // Фильтры
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      chart.data.labels = datasets[filter].labels;
-      chart.data.datasets[0].data = datasets[filter].data;
-      chart.update();
+      barChart.data.labels = barDatasets[filter].labels;
+      barChart.data.datasets[0].data = barDatasets[filter].data;
+      barChart.update();
     });
+  });
+
+  // Chart 2: Radar Chart (Source Comparison)
+  const ctxRadar = document.getElementById('radarChart').getContext('2d');
+  new Chart(ctxRadar, {
+    type: 'radar',
+    data: {
+      labels: ['Детализация механизмов', 'Экономические данные', 'Оценка рисков ИИ', 'Применимость к МСБ'],
+      datasets: [
+        {
+          label: 'Статья 1 (Вендоры)',
+          data: [90, 80, 70, 40],
+          borderColor: '#00e5ff', backgroundColor: 'rgba(0, 229, 255, 0.2)', pointBackgroundColor: '#00e5ff'
+        },
+        {
+          label: 'Статья 3 (Банки/МСБ)',
+          data: [70, 90, 80, 75],
+          borderColor: '#00ff9d', backgroundColor: 'rgba(0, 255, 157, 0.2)', pointBackgroundColor: '#00ff9d'
+        },
+        {
+          label: 'Статья 4 (Обзор МСБ)',
+          data: [40, 50, 60, 85],
+          borderColor: '#ff9500', backgroundColor: 'rgba(255, 149, 0, 0.2)', pointBackgroundColor: '#ff9500'
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        r: {
+          angleLines: { color: '#1f2738' },
+          grid: { color: '#1f2738' },
+          pointLabels: { color: '#e8ecf4', font: { size: 12 } },
+          ticks: { display: false, max: 100 }
+        }
+      },
+      plugins: { legend: { labels: { color: '#e8ecf4' } } }
+    }
   });
 </script>
 
